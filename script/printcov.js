@@ -16,9 +16,11 @@ function percentage(covered, statements){
   var percentage = Math.floor(100 * covered/statements);
   var color = 'cyan';
 
-  if(percentage < 90 && percentage > 60){
+  if(percentage >= 80 && percentage < 100){
+    color = 'magenta';
+  }else if(percentage >= 40 && percentage < 80){
     color = 'yellow';
-  }else if(percentage < 50){
+  }else if(percentage < 40){
     color = 'red';
   }      
   return (percentage + '%')[color];
