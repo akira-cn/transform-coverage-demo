@@ -6,8 +6,9 @@
   "scripts": {
     "compile": "babel --presets es2015-loose,stage-1 src/ --out-dir app/",
     "compile-cov": "babel --presets es2015-loose,stage-1 --plugins transform-coverage src/ --out-dir app/",
+    "printcov": "script/printcov.js",
     "test": "mocha",
-    "test-cov": "npm run compile-cov && mocha --reporter=mocha-lcov-reporter > app/coverage.lcov"
+    "test-cov": "npm run compile-cov && mocha --reporter=mocha-lcov-reporter > app/coverage.lcov && npm run printcov"
   },
   "repository": {
     "type": "git",

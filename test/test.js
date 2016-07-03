@@ -1,18 +1,23 @@
-var Person = require('../app/person');
-var chai = require('chai');
-
-describe('test', function(){
+describe('tests', function(){
+  var chai = require('chai');
   var expect = chai.expect;
 
-  it('person name', function(){
-    var akira = new Person('akira');
+  describe('person.js', function(){
+    var Person = require('../app/person');
+    
+    it('person name', function(){
+      var akira = new Person('akira');
 
-    expect(akira.name).to.equal('akira');
+      expect(akira.name).to.equal('akira');
+    });
+
+    it('greeting', function(){
+      var akira = new Person('akira');
+
+      expect(akira.greeting()).to.equal('hello akira');
+    });
   });
-
-  it('greeting', function(){
-    var akira = new Person('akira');
-
-    expect(akira.greeting()).to.equal('hello akira');
+  describe('leftpad.js', function(){
+    var leftpad = require('../app/leftpad.js');
   });
 });
