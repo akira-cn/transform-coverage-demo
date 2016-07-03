@@ -5,7 +5,8 @@ class Person{
     this.name = name;
   }
   greeting(){
-    console.log('hello', this.name);
+    let name = this.name;
+    return `hello ${name}`;
   }
 }
 

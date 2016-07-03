@@ -13,6 +13,6 @@ describe('test', function(){
   it('greeting', function(){
     var akira = new Person('akira');
 
-    akira.greeting();
+    expect(akira.greeting()).to.equal('hello akira');
   });
 });
