@@ -12,6 +12,18 @@ if(process.argv.length < 3){
 var lcov = process.argv[2];
 var source = process.argv[3];
 
+function percentage(covered, statements){
+  var percentage = Math.floor(100 * covered/statements);
+  var color = 'cyan';
+
+  if(percentage < 90 && percentage > 60){
+    color = 'yellow';
+  }else if(percentage < 50){
+    color = 'red';
+  }      
+  return (percentage + '%')[color];
+}
+
 function print(){
   var content = fs.readFileSync(lcov, 'utf-8');
 
@@ -38,7 +50,7 @@ function print(){
           sourceMap = sourceMap.split(/\n/g);
         }
       } else if(fileEnd){
-        console.log(`${file}: ${Math.floor(100 * covered/statements)}%`);
+        console.log(`${file}: ${percentage(covered, statements)}`);
 
         if(linesNotCovered.length){
           consoler('warning: uncovered code', linesNotCovered.map((l) => `\tline ${l}: ${sourceMap[l-1]}`).join('\n').red);
@@ -67,7 +79,7 @@ function print(){
       }
     });
   }
-  console.log(`\ntotal:${Math.floor(100 * total_covered/total)}%\n`);
+  console.log(`\ntotal: ${percentage(total_covered, total)}\n`);
 }
 
 print();
