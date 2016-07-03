@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "babel --presets es2015-loose,stage-1 src/ --out-dir app/",
     "compile-cov": "babel --presets es2015-loose,stage-1 --plugins transform-coverage src/ --out-dir app/",
-    "printcov": "script/printcov.js",
+    "printcov": "script/printcov.js  app/coverage.lcov src",
     "test": "mocha",
     "test-cov": "npm run compile-cov && mocha --reporter=mocha-lcov-reporter > app/coverage.lcov && npm run printcov"
   },
@@ -15,6 +15,8 @@
     "url": "git+https://github.com/akira-cn/transform-coverage-demo.git"
   },
   "devDependencies": {
+    "colors": "^1.1.2",
+    "consoler": "^0.6.2",
     "babel-cli": "6.x.x",
     "babel-core": "6.x.x",
     "babel-preset-es2015-loose": "6.x.x",
