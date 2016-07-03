@@ -1,0 +1,36 @@
+{
+  "name": "transform-coverage-demo",
+  "version": "0.1.0",
+  "description": "Demo for babel plugin transform coverage",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel --presets es2015-loose,stage-1 src/ --out-dir app/",
+    "compile-cov": "babel --presets es2015-loose,stage-1 --plugins transform-coverage src/ --out-dir app/",
+    "test": "mocha",
+    "test-cov": "npm run compile-cov && mocha --reporter=mocha-lcov-reporter > app/coverage.lcov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akira-cn/transform-coverage-demo.git"
+  },
+  "devDependencies": {
+    "babel-cli": "6.x.x",
+    "babel-core": "6.x.x",
+    "babel-preset-es2015-loose": "6.x.x",
+    "babel-preset-stage-1": "6.x.x",
+    "babel-plugin-transform-coverage": "^0.1.5",
+    "babel-runtime": "6.x.x",
+    "chai": "^3.4.1",
+    "mocha": "^2.5.3",
+    "mocha-lcov-reporter": "^1.2.0"
+  },
+  "keywords": [
+    "babel",
+    "coverall",
+    "coverage",
+    "plugin",
+    "transform"
+  ],
+  "author": "akira-cn",
+  "license": "ISC"
+}
